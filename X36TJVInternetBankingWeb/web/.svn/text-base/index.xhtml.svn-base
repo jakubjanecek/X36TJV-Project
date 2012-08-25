@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="/client/home.xhtml">#{l10n.indexClient}</h:link></li>
+            <li><h:link outcome="/admin/home.xhtml">#{l10n.indexAdmin}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.indexPleaseChoose}</h2>
+        <div class="unit on-2 columns center">
+            <div class="column">
+                <strong class="chooser"><h:link outcome="/client/home.xhtml">#{l10n.indexClient}</h:link></strong>
+            </div>
+            <div class="column">
+                <strong class="chooser"><h:link outcome="/admin/home.xhtml">#{l10n.indexAdmin}</h:link></strong>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

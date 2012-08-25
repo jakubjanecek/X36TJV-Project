@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="http://localhost:8082/servlet/org.netbeans.modules.javafx.project.JnlpDownloadServlet/D%3A/documents/cvut/08+semestr/X36TJV/semestralka/X36TJVInternetBanking/X36TJVExchangeApp/dist/" href="X36TJVExchangeApp_browser.jnlp">
+    <information>
+        <title>X36TJVExchangeApp</title>
+        <vendor>${application.vendor}</vendor>
+        <homepage href="http://localhost:8082/servlet/org.netbeans.modules.javafx.project.JnlpDownloadServlet/D%3A/documents/cvut/08+semestr/X36TJV/semestralka/X36TJVInternetBanking/X36TJVExchangeApp/dist/"/>
+        <description>X36TJVExchangeApp</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.5+"/>
+        <extension name="JavaFX Runtime" href="http://dl.javafx.com/1.2/javafx-rt.jnlp"/>
+        <jar href="X36TJVExchangeApp.jar" main="true"/>
+    </resources>
+    <applet-desc name="X36TJVExchangeApp" main-class="com.sun.javafx.runtime.adapter.Applet" width="300" height="200">
+        <param name="MainJavaFXScript" value="cz.cvut.fel.x36tjv.javafx.Main"/>
+    </applet-desc>
+    <update check="background"/>
+</jnlp>

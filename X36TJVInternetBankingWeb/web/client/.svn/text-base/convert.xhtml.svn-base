@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../layout.xhtml">
+
+    <ui:define name="scripts">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/elastic.js"></script>
+    </ui:define>
+
+    <ui:define name="styles">
+        <link href="../css/elastic.css" rel="stylesheet" type="text/css" />
+        <link href="../css/elastic.print.css" rel="stylesheet" type="text/css" />
+        <link href="../css/typography.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="home">#{l10n.clientHome}</h:link></li>
+            <li><h:link outcome="accounts">#{l10n.clientAccounts}</h:link></li>
+            <li><h:link outcome="transactions">#{l10n.clientTransactions}</h:link></li>
+            <li><h:link outcome="transfer">#{l10n.clientTransfer}</h:link></li>
+            <li><h:link outcome="sendStatement">#{l10n.clientSendStatement}</h:link></li>
+            <li><h:link outcome="convert">#{l10n.clientConvert}</h:link></li>
+            <li class="loner"><h:link outcome="/index.xhtml">#{l10n.back}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.clientConvert}</h2>
+        <strong><a href="/X36TJVInternetBankingWeb/converter.jnlp" title="Run the Converter">Run</a></strong>
+    </ui:define>
+
+</ui:composition>

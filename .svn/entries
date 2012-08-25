@@ -1,0 +1,89 @@
+10
+
+dir
+117
+svn://sunray1.felk.cvut.cz/tjv1/janecjak/X36TJVInternetBanking
+svn://sunray1.felk.cvut.cz/tjv1
+
+
+
+2010-03-23T12:51:15.665826Z
+117
+janecjak
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+2476cf69-3eee-4788-e9c5-f4e03bda4296
+
+X36TJVInternetBankingBackend
+dir
+
+setup
+dir
+
+X36TJVCentralBankWS
+dir
+
+X36TJVInternetBankingWeb
+dir
+
+lib
+dir
+
+nbproject
+dir
+
+src
+dir
+
+X36TJVExchangeApp
+dir
+
+X36TJVExchangeOfficeWS
+dir
+
+build.xml
+file
+
+
+
+
+2010-03-16T10:43:52.190064Z
+e728728b1ae9e9980dcd2a9ec94300fe
+2010-03-23T12:51:15.665826Z
+117
+janecjak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2827
+

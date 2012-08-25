@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../layout.xhtml">
+
+    <ui:define name="scripts">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/elastic.js"></script>
+    </ui:define>
+
+    <ui:define name="styles">
+        <link href="../css/elastic.css" rel="stylesheet" type="text/css" />
+        <link href="../css/elastic.print.css" rel="stylesheet" type="text/css" />
+        <link href="../css/forms.css" rel="stylesheet" type="text/css" />
+        <link href="../css/typography.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="home">#{l10n.clientHome}</h:link></li>
+            <li><h:link outcome="accounts">#{l10n.clientAccounts}</h:link></li>
+            <li><h:link outcome="transactions">#{l10n.clientTransactions}</h:link></li>
+            <li><h:link outcome="transfer">#{l10n.clientTransfer}</h:link></li>
+            <li><h:link outcome="sendStatement">#{l10n.clientSendStatement}</h:link></li>
+            <li><h:link outcome="convert">#{l10n.clientConvert}</h:link></li>
+            <li class="loner"><h:link outcome="/index.xhtml">#{l10n.back}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.clientTransfer}</h2>
+        <h:form id="form">
+            <div class="unit on-6 columns">
+                <div class="column span-6 messages">
+                    <h:message for="from" styleClass="error" />
+                    <h:message for="bankTo" styleClass="error" />
+                    <h:message for="toAccountId" styleClass="error" />
+                    <h:message for="amount" styleClass="error" />
+                    <h:message for="currency" styleClass="error" />
+                    <h:message for="description" styleClass="error" />
+                    <h:message for="transfer" styleClass="error" />
+                </div>
+                <div class="column"><h:outputLabel for="from">#{l10n.from}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="from" value="#{transfer.fromAccountId}">
+                        <c:selectItems value="#{transfer.accounts}"/>
+                        <c:converter converterId="javax.faces.Long" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="bankTo">#{l10n.bankTo}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="bankTo" value="#{transfer.bankCode}">
+                        <c:selectItems value="#{transfer.banks}"/>
+                        <c:converter converterId="javax.faces.Short" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="toAccountId">#{l10n.to}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="toAccountId" value="#{transfer.toAccountId}">
+                        <c:converter converterId="javax.faces.Long" />
+                    </h:inputText>
+                </div>
+                <div class="column"><h:outputLabel for="amount">#{l10n.amount}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="amount" value="#{transfer.amount}">
+                        <c:converter converterId="javax.faces.BigDecimal" />
+                    </h:inputText>
+                </div>
+                <div class="column"><h:outputLabel for="currency">#{l10n.currency}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="currency" value="#{transfer.currencyCode}">
+                        <c:selectItems value="#{transfer.currencies}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="description">#{l10n.description}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="description" value="#{transfer.description}" />
+                </div>
+                <div class="column span-2">
+                    <h:commandButton id="transfer" action="#{transfer.transfer}" value="#{l10n.transfer}" />
+                </div>
+                <div class="column span-4">
+                    <h:commandButton action="home" value="#{l10n.cancel}" immediate="true" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

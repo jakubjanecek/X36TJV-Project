@@ -1,0 +1,77 @@
+10
+
+dir
+117
+svn://sunray1.felk.cvut.cz/tjv1/janecjak/X36TJVInternetBanking/lib
+svn://sunray1.felk.cvut.cz/tjv1
+
+
+
+2010-03-23T12:51:15.665826Z
+117
+janecjak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2476cf69-3eee-4788-e9c5-f4e03bda4296
+
+MySQLDriver
+dir
+
+javaee-endorsed-api-6.0
+dir
+
+CopyLibs
+dir
+
+nblibraries.properties
+file
+348
+
+
+
+2010-04-05T15:10:11.965033Z
+d05c0ed373c5cbb99d3e54236b74634b
+2010-04-07T10:43:43.373182Z
+348
+janecjak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1396
+
+junit
+dir
+
+junit_4
+dir
+

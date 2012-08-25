@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>cs</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>l10n</base-name>
+            <var>l10n</var>
+        </resource-bundle>
+    </application>
+
+    <managed-bean>
+        <managed-bean-name>customerAccounts</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.admin.CustomerAccounts</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>customerId</property-name>
+            <value>#{param['customerId']}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>updateCustomer</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.admin.UpdateCustomer</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>customerId</property-name>
+            <value>#{param['customerId']}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>accountTransactions</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.admin.AccountTransactions</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>accountId</property-name>
+            <value>#{param['accountId']}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>clientAccountTransactions</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.client.AccountTransactions</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>accountId</property-name>
+            <value>#{param['accountId']}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>updateAccount</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.admin.UpdateAccount</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>accountId</property-name>
+            <value>#{param['accountId']}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>updateDebet</managed-bean-name>
+        <managed-bean-class>cz.cvut.fel.x36tjv.managedbeans.client.UpdateDebet</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>accountId</property-name>
+            <value>#{param['accountId']}</value>
+        </managed-property>
+    </managed-bean>
+
+</faces-config>
+
+

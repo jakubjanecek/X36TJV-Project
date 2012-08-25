@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="client/convert.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="admin/customers.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="admin/updateCustomer.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="admin/accountTransactions.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="admin/deleteCustomer.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="client/accounts.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="client/transfer.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="layout.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="admin/addAccount.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="client/accountTransactions.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="admin/transactions.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="admin/home.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="admin/addCustomer.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="admin/interestRates.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="admin/updateAccount.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="index.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="client/transactions.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="admin/customerAccounts.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="client/sendStatement.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="admin/currencyCodes.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="client/home.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="admin/accounts.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="admin/bankCodes.xhtml" x="900" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

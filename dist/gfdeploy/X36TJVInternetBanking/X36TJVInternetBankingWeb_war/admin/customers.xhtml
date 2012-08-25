@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../layout.xhtml">
+
+    <ui:define name="scripts">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/elastic.js"></script>
+    </ui:define>
+
+    <ui:define name="styles">
+        <link href="../css/elastic.css" rel="stylesheet" type="text/css" />
+        <link href="../css/elastic.print.css" rel="stylesheet" type="text/css" />
+        <link href="../css/typography.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="home">#{l10n.adminHome}</h:link></li>
+            <li><h:link outcome="customers">#{l10n.adminCustomers}</h:link>
+                <ul>
+                    <li><h:link outcome="addCustomer">#{l10n.adminAddCustomer}</h:link></li>
+                    <li><h:link outcome="deleteCustomer">#{l10n.adminDeleteCustomer}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="accounts">#{l10n.adminAccounts}</h:link>
+                <ul>
+                    <li><h:link outcome="addAccount">#{l10n.adminAddAccount}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="transactions">#{l10n.adminTransactions}</h:link></li>
+            <li><h:link outcome="bankCodes">#{l10n.adminBankCodes}</h:link></li>
+            <li><h:link outcome="currencyCodes">#{l10n.adminCurrencyCodes}</h:link></li>
+            <li><h:link outcome="interestRates">#{l10n.adminInterestRates}</h:link></li>
+            <li class="loner"><h:link outcome="/index.xhtml">#{l10n.back}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.adminCustomers}</h2>
+        <h:dataTable value="#{manager.customers}" var="customer">
+            <h:column>
+                <c:facet name="header">#{l10n.id}</c:facet>
+                #{customer.id}
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.firstName}</c:facet>
+                #{customer.firstName}
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.lastName}</c:facet>
+                #{customer.lastName}
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.email}</c:facet>
+                #{customer.email}
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.update}</c:facet>
+                <h:link outcome="updateCustomer">
+                    <c:param name="customerId" value="#{customer.id}"></c:param>
+                    #{l10n.update}
+                </h:link>
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.adminAccounts}</c:facet>
+                <h:link outcome="customerAccounts">
+                    <c:param name="customerId" value="#{customer.id}"></c:param>
+                    #{l10n.adminAccounts}
+                </h:link>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+
+</ui:composition>

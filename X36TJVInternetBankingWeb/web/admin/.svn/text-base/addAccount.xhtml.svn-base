@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../layout.xhtml">
+
+    <ui:define name="scripts">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/elastic.js"></script>
+    </ui:define>
+
+    <ui:define name="styles">
+        <link href="../css/elastic.css" rel="stylesheet" type="text/css" />
+        <link href="../css/elastic.print.css" rel="stylesheet" type="text/css" />
+        <link href="../css/forms.css" rel="stylesheet" type="text/css" />
+        <link href="../css/typography.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="home">#{l10n.adminHome}</h:link></li>
+            <li><h:link outcome="customers">#{l10n.adminCustomers}</h:link>
+                <ul>
+                    <li><h:link outcome="addCustomer">#{l10n.adminAddCustomer}</h:link></li>
+                    <li><h:link outcome="deleteCustomer">#{l10n.adminDeleteCustomer}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="accounts">#{l10n.adminAccounts}</h:link>
+                <ul>
+                    <li><h:link outcome="addAccount">#{l10n.adminAddAccount}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="transactions">#{l10n.adminTransactions}</h:link></li>
+            <li><h:link outcome="bankCodes">#{l10n.adminBankCodes}</h:link></li>
+            <li><h:link outcome="currencyCodes">#{l10n.adminCurrencyCodes}</h:link></li>
+            <li><h:link outcome="interestRates">#{l10n.adminInterestRates}</h:link></li>
+            <li class="loner"><h:link outcome="/index.xhtml">#{l10n.back}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.adminAddAccount}</h2>
+        <h:form id="addAccount">
+            <div class="unit on-6 columns">
+                <div class="column span-6 messages">
+                    <h:message for="button" styleClass="error"/>
+                    <h:message for="bank" styleClass="error" />
+                    <h:message for="currency" styleClass="error" />
+                    <h:message for="balance" styleClass="error" />
+                    <h:message for="debet" styleClass="error" />
+                    <h:message for="customer" styleClass="error" />
+                </div>
+                <div class="column"><h:outputLabel for="customer">#{l10n.customer}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="customer" value="#{addAccount.customer}">
+                        <c:selectItems value="#{addAccount.customers}"/>
+                        <c:converter converterId="javax.faces.Long" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="bank">#{l10n.bank}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="bank" value="#{addAccount.bank}">
+                        <c:selectItems value="#{addAccount.banks}"/>
+                        <c:converter converterId="javax.faces.Short" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="currency">#{l10n.currency}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="currency" value="#{addAccount.currency}">
+                        <c:selectItems value="#{addAccount.currencies}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="column"><h:outputLabel for="balance">#{l10n.balance}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="balance" value="#{addAccount.balance}">
+                        <c:converter converterId="javax.faces.BigDecimal" />
+                    </h:inputText>
+                </div>
+                <div class="column"><h:outputLabel for="debet">#{l10n.debet}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="debet" value="#{addAccount.debet}">
+                        <c:converter converterId="javax.faces.BigDecimal" />
+                    </h:inputText>
+                </div>
+                <div class="column span-2">
+                    <h:commandButton id="button" action="#{addAccount.add}" value="#{l10n.add}" />
+                </div>
+                <div class="column span-4">
+                    <h:commandButton action="home" value="#{l10n.cancel}" immediate="true" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

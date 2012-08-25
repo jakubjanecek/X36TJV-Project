@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../layout.xhtml">
+
+    <ui:define name="scripts">
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/elastic.js"></script>
+    </ui:define>
+
+    <ui:define name="styles">
+        <link href="../css/elastic.css" rel="stylesheet" type="text/css" />
+        <link href="../css/elastic.print.css" rel="stylesheet" type="text/css" />
+        <link href="../css/forms.css" rel="stylesheet" type="text/css" />
+        <link href="../css/typography.css" rel="stylesheet" type="text/css" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="left">
+        <ul id="menu">
+            <li><h:link outcome="home">#{l10n.adminHome}</h:link></li>
+            <li><h:link outcome="customers">#{l10n.adminCustomers}</h:link>
+                <ul>
+                    <li><h:link outcome="addCustomer">#{l10n.adminAddCustomer}</h:link></li>
+                    <li><h:link outcome="deleteCustomer">#{l10n.adminDeleteCustomer}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="accounts">#{l10n.adminAccounts}</h:link>
+                <ul>
+                    <li><h:link outcome="addAccount">#{l10n.adminAddAccount}</h:link></li>
+                </ul>
+            </li>
+            <li><h:link outcome="transactions">#{l10n.adminTransactions}</h:link></li>
+            <li><h:link outcome="bankCodes">#{l10n.adminBankCodes}</h:link></li>
+            <li><h:link outcome="currencyCodes">#{l10n.adminCurrencyCodes}</h:link></li>
+            <li><h:link outcome="interestRates">#{l10n.adminInterestRates}</h:link></li>
+            <li class="loner"><h:link outcome="/index.xhtml">#{l10n.back}</h:link></li>
+        </ul>
+    </ui:define>
+
+    <ui:define name="right">
+        <h2>#{l10n.adminInterestRates}</h2>
+        <h:dataTable value="#{manager.currencyRates}" var="rate">
+            <h:column>
+                <c:facet name="header">#{l10n.code}</c:facet>
+                #{rate.code}
+            </h:column>
+            <h:column>
+                <c:facet name="header">#{l10n.rate}</c:facet>
+                #{rate.rate}
+            </h:column>
+        </h:dataTable>
+        <h3>#{l10n.add}</h3>
+        <h:form id="addCurrencyRate">
+            <div class="unit on-6 columns">
+                <div class="column span-6 messages">
+                    <h:message for="button" styleClass="error"/>
+                    <h:message for="code" styleClass="error" />
+                    <h:message for="rate" styleClass="error" />
+                </div>
+                <div class="column"><h:outputLabel for="code">#{l10n.currency}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="code" value="#{addCurrencyRate.code}">
+                        <c:selectItems value="#{addCurrencyRate.currencies}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                <div class="column"><h:outputLabel for="rate">#{l10n.rate}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="rate" value="#{addCurrencyRate.rate}">
+                        <c:converter converterId="javax.faces.BigDecimal" />
+                    </h:inputText>
+                </div>
+                <div class="column span-6">
+                    <h:commandButton id="button" action="#{addCurrencyRate.add}" value="#{l10n.add}" />
+                </div>
+            </div>
+        </h:form>
+        <h3>#{l10n.update}</h3>
+        <h:form id="updateCurrencyRate">
+            <div class="unit on-6 columns">
+                <div class="column span-6 messages">
+                    <h:message for="button" styleClass="error"/>
+                    <h:message for="code" styleClass="error" />
+                    <h:message for="rate" styleClass="error" />
+                </div>
+                <div class="column"><h:outputLabel for="code">#{l10n.rate}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="code" value="#{updateCurrencyRate.code}">
+                        <c:selectItems value="#{updateCurrencyRate.currencyRates}"/>
+                    </h:selectOneMenu>
+                    <h:message for="code" />
+                </div>
+                <div class="column"><h:outputLabel for="rate">#{l10n.rate}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:inputText id="rate" value="#{updateCurrencyRate.rate}">
+                        <c:converter converterId="javax.faces.BigDecimal" />
+                    </h:inputText>
+                </div>
+                <div class="column span-6">
+                    <h:commandButton id="button" action="#{updateCurrencyRate.update}" value="#{l10n.update}" />
+                </div>
+            </div>
+        </h:form>
+        <h3>#{l10n.delete}</h3>
+        <h:form id="deleteCurrencyRate">
+            <div class="unit on-6 columns">
+                <div class="column span-6 messages">
+                    <h:message for="button" styleClass="error"/>
+                    <h:message for="code" styleClass="error" />
+                </div>
+                <div class="column"><h:outputLabel for="code">#{l10n.rate}</h:outputLabel></div>
+                <div class="column span-5">
+                    <h:selectOneMenu id="code" value="#{deleteCurrencyRate.code}">
+                        <c:selectItems value="#{deleteCurrencyRate.currencyRates}"/>
+                    </h:selectOneMenu>
+                    <h:message for="code" />
+                </div>
+                <div class="column span-6">
+                    <h:commandButton id="button" action="#{deleteCurrencyRate.delete}" value="#{l10n.delete}" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
